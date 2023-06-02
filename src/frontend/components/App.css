@@ -1,5 +1,17 @@
+body{
+  background-image: url('./bg2.jpg');
+}
+
+.navbar{
+  background-image: url('./bg2.jpg');
+}
+
 .App {
   text-align: center;
+  background-color: rgb(105, 9, 9);
+  background-image: url('./bg2.jpg');
+  
+  
 }
 
 .App-logo {
@@ -14,7 +26,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -35,4 +47,14 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+.self{
+  margin-left: 150px;
+}
+
+.self-link{
+  color:white;
+  text-decoration: solid;
 }
