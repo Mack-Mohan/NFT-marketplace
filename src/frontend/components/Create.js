@@ -1,8 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import { ethers } from "ethers"
 import { Row, Form, Button } from 'react-bootstrap'
 import axios from 'axios'
 import FormData from 'form-data'
+
+
 
 
 const pinataBaseUrl = 'https://api.pinata.cloud'
@@ -11,6 +14,10 @@ const Create = ({ marketplace, nft }) => {
   const [price, setPrice] = useState(null)
   const [name, setName] = useState('')
   const [description, setDescription] = useState('')
+  const navigate = useNavigate();
+  const finish = () => {
+   navigate("/")
+  }
 
 
 
@@ -54,6 +61,7 @@ const createNFT = async () => {
     }catch(error) {
       console.log("ipfs uri upload error: ", error)
     }
+    
   }
 
 
@@ -74,6 +82,7 @@ const createNFT = async () => {
     // add nft to marketplace
     const listingPrice = ethers.utils.parseEther(price.toString())
     await(await marketplace.makeItem(nft.address, id, listingPrice)).wait()
+    finish();
     
   }
 
