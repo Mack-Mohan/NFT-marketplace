@@ -25,6 +25,29 @@ function App() {
   const [marketplace, setMarketplace] = useState({})
   // MetaMask Login/Connect
   const web3Handler = async () => {
+
+    //Switch network
+
+    const targetNetworkId = '0xaa36a7';
+
+      if (window.ethereum) {
+        const currentChainId = await window.ethereum.request({
+          method: 'eth_chainId',
+        });
+        console.log(currentChainId)
+    
+        if (currentChainId != targetNetworkId){
+          await window.ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: targetNetworkId }],
+          });
+          // refresh
+          window.location.reload();
+        }
+
+
+
+      }
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
     setAccount(accounts[0])
     // Get provider from Metamask

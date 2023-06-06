@@ -2,6 +2,10 @@ body{
   background-image: url('./bg2.jpg');
 }
 
+h2{
+  color: #fff;
+}
+
 .navbar{
   background-image: url('./bg2.jpg');
 }
